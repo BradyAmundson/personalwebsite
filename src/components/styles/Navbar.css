@@ -1,0 +1,20 @@
+.custom-app-bar {
+  background-color: rgba(14, 27, 86, 0.319);
+}
+
+.custom-tool-bar {
+  background-color: rgba(14, 27, 86, 0.319);
+  display: flex;
+  justify-content: left;
+  padding: 0 50px;
+}
+
+.custom-link {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+}
+
+.custom-link:hover {
+  color: rgb(190, 190, 190);
+}
