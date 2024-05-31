@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/personalwebsite/static/css/main.161fcb74.css",
+    "main.js": "/personalwebsite/static/js/main.daaf42ac.js",
+    "static/js/453.7596a9ed.chunk.js": "/personalwebsite/static/js/453.7596a9ed.chunk.js",
+    "static/media/foreground-potential-removebg.png": "/personalwebsite/static/media/foreground-potential-removebg.c98f4344e512b2013a0c.png",
+    "static/media/background-aurora.jpg": "/personalwebsite/static/media/background-aurora.4f62b03c12847db05929.jpg",
+    "index.html": "/personalwebsite/index.html",
+    "main.161fcb74.css.map": "/personalwebsite/static/css/main.161fcb74.css.map",
+    "main.daaf42ac.js.map": "/personalwebsite/static/js/main.daaf42ac.js.map",
+    "453.7596a9ed.chunk.js.map": "/personalwebsite/static/js/453.7596a9ed.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.161fcb74.css",
+    "static/js/main.daaf42ac.js"
+  ]
+}
