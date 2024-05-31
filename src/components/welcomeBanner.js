@@ -17,7 +17,7 @@ const WelcomeBanner = () => {
     expanded: false,
     children: (
       <div className="inset center">
-        <h1 className="headline white">Hello World!</h1>
+        <h1 className="headline white">Welcome</h1>
       </div>
     ),
   };

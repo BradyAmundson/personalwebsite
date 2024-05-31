@@ -2,8 +2,18 @@ html,
 body {
   padding: 0;
   margin: 0;
-  height: 200vh;
+  height: 800vh;
   background: #000;
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.projects {
+  height: 300vh
 }
 
 .headline {
@@ -34,8 +44,98 @@ body {
 }
 
 .center.full {
-    background-color: #000;
+  background-color: #000;
+}
+
+.center.main {
+  background-color: #000;
 }
 .gradient {
   background: linear-gradient(rgba(14, 62, 151, 0.5) 50%, black);
+}
+
+.spinner {
+  align-items: center;
+}
+
+.spinner * {
+  font-size: 10vw;
+  animation: handsup 1s infinite;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  background-color: #000;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 50%;
+}
+
+.sectionheader {
+  font-size: 10vw;
+}
+
+.projects {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding-top: 10vh;
+  flex-direction: column;
+}
+
+.skills {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding-top: 10vh;
+  flex-direction: column;
+}
+
+.word-cloud {
+  position: relative;
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.word-cloud-item {
+  font-size: 2em;
+  position: absolute;
+  margin: 0;
+}
+
+.word-cloud-item:nth-child(1) {
+  top: 20%;
+  left: 30%;
+}
+
+.word-cloud-item:nth-child(2) {
+  top: 40%;
+  left: 60%;
+}
+
+.word-cloud-item:nth-child(3) {
+  top: 60%;
+  left: 30%;
+}
+
+.word-cloud-item:nth-child(4) {
+  top: 80%;
+  left: 60%;
+}
+
+.word-cloud-item:nth-child(5) {
+  top: 50%;
+  left: 50%;
 }

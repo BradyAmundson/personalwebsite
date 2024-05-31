@@ -1,19 +1,17 @@
 import React from "react";
+import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 
 const Portfolio = () => {
   return (
     <div>
-      <h1>Portfolio Page</h1>
-      <p>
-        {[...new Array(22)]
-          .map(
-            () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
-          )
-          .join("\n")}
-      </p>
+      <ParallaxProvider>
+        <Parallax speed={-5}>
+          <div className="slow" />
+        </Parallax>
+        <Parallax speed={5}>
+          <div className="fast" />
+        </Parallax>
+      </ParallaxProvider>
     </div>
   );
 };

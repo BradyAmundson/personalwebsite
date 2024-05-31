@@ -42,7 +42,7 @@ function ScrollTop(props) {
       <Box
         onClick={handleClick}
         role="presentation"
-        sx={{ position: "fixed", bottom: 16, right: 16 }}
+        sx={{ position: "fixed", bottom: 16, right: 16, zIndex: 1000 }}
       >
         {children}
       </Box>
@@ -67,11 +67,6 @@ export default function HideAppBar(props) {
             <Typography variant="h6" component="div">
               <Link to="/about" className="custom-link">
                 About
-              </Link>
-            </Typography>
-            <Typography variant="h6" component="div">
-              <Link to="/portfolio" className="custom-link">
-                Portfolio
               </Link>
             </Typography>
           </Toolbar>

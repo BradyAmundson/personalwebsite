@@ -1,0 +1,15 @@
+.spin-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: visible; /* Ensure nothing is clipped */
+  }
+
+  .spin-item {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width:50vh;
+    transform-origin: center;
+    transition: transform 0.1s linear;
+  }
