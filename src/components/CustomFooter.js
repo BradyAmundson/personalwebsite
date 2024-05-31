@@ -1,17 +1,37 @@
 import React from "react";
+import { useState } from "react";
 import { Typography, Container, IconButton } from "@mui/material";
 import { Email, LinkedIn, GitHub } from "@mui/icons-material";
+import PopUp from "./PopUp";
 
 const CustomFooter = () => {
+  const [showPopUp, setShowPopUp] = useState(true);
+  const [popUpPosition, setPopUpPosition] = useState({ x: 10, y: -35 });
+
+  const handleShowPopUp = (e) => {
+    setPopUpPosition({ x: e.clientX, y: e.clientY });
+    setShowPopUp(true);
+  };
+
+  const handleClosePopUp = () => {
+    setShowPopUp(false);
+  };
   return (
     <footer
       style={{
         padding: "20px 0",
         position: "fixed",
         bottom: 0,
-        width: "100%",
+        left: 0,
       }}
     >
+      {showPopUp && (
+        <PopUp
+          targetX={popUpPosition.x}
+          targetY={popUpPosition.y}
+          onClose={handleClosePopUp}
+        />
+      )}
       <Container>
         <div style={{ display: "flex", alignItems: "center" }}>
           <IconButton

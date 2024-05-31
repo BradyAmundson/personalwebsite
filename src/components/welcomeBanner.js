@@ -1,9 +1,10 @@
 import { ParallaxBanner } from "react-scroll-parallax";
+import foregroundImage from "../images/foreground-potential-removebg.png";
+import backgroundImage from "../images/background-aurora.jpg";
 
 const WelcomeBanner = () => {
   const background = {
-    image:
-      "https://s3-us-west-2.amazonaws.com/s.cdpn.io/105988/banner-background.jpg",
+    image: backgroundImage,
     translateY: [0, 50],
     opacity: [1, 0.3],
     scale: [1.05, 1, "easeOutCubic"],
@@ -11,20 +12,19 @@ const WelcomeBanner = () => {
   };
 
   const headline = {
-    translateY: [0, 30],
+    translateY: [-15, 30],
     scale: [1, 1.05, "easeOutCubic"],
     shouldAlwaysCompleteAnimation: true,
     expanded: false,
     children: (
       <div className="inset center">
-        <h1 className="headline white">Welcome</h1>
+        <h1 className="headline white">Hey, Welcome!</h1>
       </div>
     ),
   };
 
   const foreground = {
-    image:
-      "https://s3-us-west-2.amazonaws.com/s.cdpn.io/105988/banner-foreground.png",
+    image: foregroundImage,
     translateY: [0, 15],
     scale: [1, 1.1, "easeOutCubic"],
     shouldAlwaysCompleteAnimation: true,

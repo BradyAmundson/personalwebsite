@@ -1,34 +1,49 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Spin.css";
 
 const Spin = ({ children }) => {
+  const [hasReachedPosition, setHasReachedPosition] = useState(false);
   const containerRef = useRef(null);
   const numChildren = React.Children.count(children);
 
   useEffect(() => {
     const handleScroll = () => {
-      const rotation = window.scrollY * 0.3; // Adjust rotation speed as needed
-      if (containerRef.current) {
-        containerRef.current.style.transform = `rotate(${rotation}deg)`;
+      if (
+        !hasReachedPosition &&
+        window.scrollY >= 4600 &&
+        window.scrollY <= 6200
+      ) {
+        setHasReachedPosition(true);
+      }
 
-        const childrenElements = containerRef.current.children;
-        for (let i = 0; i < childrenElements.length; i++) {
-          const angle = (360 / numChildren) * i + rotation;
-          const normalizedAngle = ((angle % 360) + 360) % 360;
+      if (hasReachedPosition && containerRef.current) {
+        if (window.scrollY >= 6200) {
+          setHasReachedPosition(false);
+        }
+        const rotation = window.scrollY * 0.3; // Adjust rotation speed as needed
+        if (containerRef.current) {
+          containerRef.current.style.transform = `rotate(${rotation}deg)`;
 
-          // Calculate opacity based on angle relative to 90 degrees
-          let opacity;
-          if (normalizedAngle >= 0 && normalizedAngle <= 90) {
-            opacity = 1 - normalizedAngle / 90;
-          } else if (normalizedAngle > 90 && normalizedAngle <= 180) {
-            opacity = 1 - (normalizedAngle - 90) / 90;
-          } else if (normalizedAngle > 180 && normalizedAngle <= 270) {
-            opacity = 0;
-          } else {
-            opacity = (normalizedAngle - 270) / 90;
+          const childrenElements = containerRef.current.children;
+          for (let i = 0; i < childrenElements.length; i++) {
+            const angle = (360 / numChildren / 2) * i + rotation;
+            const normalizedAngle = ((angle % 360) + 360) % 360;
+
+            // Calculate opacity based on angle relative to 90 degrees
+
+            let opacity;
+            if (normalizedAngle >= 0 && normalizedAngle <= 90) {
+              opacity = 1 - normalizedAngle / 90;
+            } else if (normalizedAngle > 90 && normalizedAngle <= 180) {
+              opacity = 1 - (normalizedAngle - 90) / 90;
+            } else if (normalizedAngle > 180 && normalizedAngle <= 270) {
+              opacity = (normalizedAngle - 180) / 90;
+            } else {
+              opacity = 1 - (normalizedAngle - 270) / 90;
+            }
+
+            childrenElements[i].style.opacity = opacity;
           }
-
-          childrenElements[i].style.opacity = opacity;
         }
       }
     };
@@ -38,13 +53,13 @@ const Spin = ({ children }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [hasReachedPosition]);
 
   return (
     <div className="spin-container" ref={containerRef}>
       {React.Children.map(children, (child, index) => {
-        const angle = (360 / numChildren) * index;
-        const radius = 700; // Adjust radius as needed
+        const angle = (360 / numChildren / 2) * index + 90;
+        const radius = 700;
 
         // Calculate the position of each child
         const xPos = radius * Math.cos((angle * Math.PI) / 180);

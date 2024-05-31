@@ -38,8 +38,8 @@ const getRandomInt = (min, max) => {
 
 const generateRandomSkills = () => {
   return skillsList.map((skill) => {
-    const startScroll = getRandomInt(1900, 2500);
-    const endScroll = getRandomInt(startScroll + 200, 2700);
+    const startScroll = getRandomInt(6000, 6600);
+    const endScroll = getRandomInt(startScroll + 300, 6900);
 
     return (
       <Parallax

@@ -16,7 +16,7 @@ const Home = () => {
         <ParallaxProvider>
           <WelcomeBanner />
           <div className="center full">
-            <h1 className="headline gray">Brady Amundson</h1>
+            <h1 className="headline gray">I'm Brady Amundson</h1>
           </div>
         </ParallaxProvider>
       </div>
@@ -131,18 +131,14 @@ const Home = () => {
         <div className="row">
           <ParallaxProvider>
             <div className="projects">
-              <div>
-                <Parallax speed={-20} startScroll={3000} easing={"easeOutQuad"}>
-                  <header className="sectionheader">Projects</header>
+              <div className="sectionheader projectheader">
+                <Parallax translateY={["-50%", "1400%"]}>
+                  <header>Projects</header>
                 </Parallax>
               </div>
-              <div style={{ position: "absolute", right: "50vw" }}>
+              <div style={{ position: "absolute", right: "60vw" }}>
                 <div className="column">
-                  <Parallax
-                    speed={-50}
-                    startScroll={7000}
-                    easing={"easeInOutQuad"}
-                  >
+                  <Parallax translateY={["0%", "120%"]}>
                     <Spin>
                       <Project
                         projectName="Gruuper"

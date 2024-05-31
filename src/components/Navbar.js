@@ -64,11 +64,11 @@ export default function HideAppBar(props) {
                 Home
               </Link>
             </Typography>
-            <Typography variant="h6" component="div">
+            {/* <Typography variant="h6" component="div">
               <Link to="/about" className="custom-link">
                 About
               </Link>
-            </Typography>
+            </Typography> */}
           </Toolbar>
         </AppBar>
       </HideOnScroll>
