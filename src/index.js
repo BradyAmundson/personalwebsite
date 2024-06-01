@@ -7,26 +7,49 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 import ErrorPage from "./pages/ErrorPage";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-    ],
-  },
-]);
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <App />,
+//     errorElement: <ErrorPage />,
+//     children: [
+//       {
+//         path: "/",
+//         element: <Home />,
+//       },
+//     ],
+//   },
+// ]);
+
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(
+//   <React.StrictMode>
+//     <HashRouter>
+//       <Routes>
+//         <Route path="/" element={<App />}>
+//           <Route index element={<Home />} />
+//           <Route path="about" element={<About />} />
+//           <Route path="portfolio" element={<Portfolio />} />
+//           <Route path="*" element={<ErrorPage />} />
+//         </Route>
+//       </Routes>
+//     </HashRouter>
+//   </React.StrictMode>
+// );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route index element={<Home />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
+      </Routes>
+    </HashRouter>
   </React.StrictMode>
 );
 
