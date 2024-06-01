@@ -23,15 +23,6 @@ const Home = () => {
       <div classname="section-item">
         <div className="row">
           <ParallaxProvider>
-            {/* <Parallax
-            translateX={["-800px", "0px"]}
-            scale={[0.75, 1]}
-            rotate={[-720, 0]}
-            easing="easeInQuad"
-            y={[-20, 20]}
-          >
-            <h1>Heyo</h1>
-          </Parallax> */}
             <div className="column">
               <Parallax speed={-20}>
                 <header className="sectionheader">Work Experience</header>
@@ -40,7 +31,6 @@ const Home = () => {
             <div className="column">
               <Parallax
                 speed={10}
-                easing={"easeInOutQuad"}
                 scale={[1, 1.5, "easeInOutQuad"]}
               >
                 <JobExperience
@@ -57,7 +47,6 @@ const Home = () => {
               </Parallax>
               <Parallax
                 speed={10}
-                easing={"easeInOutQuad"}
                 scale={[1, 1.5, "easeInOutQuad"]}
               >
                 <JobExperience
@@ -74,7 +63,6 @@ const Home = () => {
               </Parallax>
               <Parallax
                 speed={10}
-                easing={"easeInOutQuad"}
                 scale={[1, 1.5, "easeInOutQuad"]}
               >
                 <JobExperience
@@ -90,7 +78,6 @@ const Home = () => {
               </Parallax>
               <Parallax
                 speed={10}
-                easing={"easeInOutQuad"}
                 scale={[1, 1.5, "easeInOutQuad"]}
               >
                 <JobExperience
@@ -107,7 +94,6 @@ const Home = () => {
               </Parallax>
               <Parallax
                 speed={10}
-                easing={"easeInOutQuad"}
                 scale={[1, 1.5, "easeInOutQuad"]}
               >
                 <JobExperience
