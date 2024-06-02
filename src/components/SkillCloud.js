@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Parallax } from "react-scroll-parallax";
 import "./styles/SkillCloud.css";
 
@@ -36,27 +36,51 @@ const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-const generateRandomSkills = () => {
-  return skillsList.map((skill) => {
-    const startScroll = getRandomInt(6000, 6600);
-    const endScroll = getRandomInt(startScroll + 300, 6900);
-
-    return (
-      <Parallax
-        key={skill}
-        className="word-cloud-item"
-        opacity={[-5, 1]}
-        startScroll={startScroll}
-        endScroll={endScroll}
-      >
-        <h1>{skill}</h1>
-      </Parallax>
-    );
-  });
-};
-
 const SkillCloud = () => {
-  return <div className="word-cloud">{generateRandomSkills()}</div>;
+  const [scrollPositions, setScrollPositions] = useState([]);
+  const cloudRef = useRef(null);
+
+  const generateRandomSkills = () => {
+    if (cloudRef.current) {
+      const cloudTop =
+        cloudRef.current.getBoundingClientRect().top + window.scrollY;
+      const viewportHeight = window.innerHeight;
+
+      const positions = skillsList.map(() => {
+        const startScroll =
+          cloudTop - viewportHeight + getRandomInt(0, viewportHeight / 2);
+        const endScroll =
+          cloudTop -
+          viewportHeight +
+          getRandomInt(viewportHeight / 2, viewportHeight);
+        return { startScroll, endScroll };
+      });
+
+      setScrollPositions(positions);
+    }
+  };
+
+  useEffect(() => {
+    generateRandomSkills();
+    window.addEventListener("resize", generateRandomSkills);
+    return () => window.removeEventListener("resize", generateRandomSkills);
+  }, []);
+
+  return (
+    <div ref={cloudRef} className="word-cloud">
+      {skillsList.map((skill, index) => (
+        <Parallax
+          key={skill}
+          className="word-cloud-item"
+          opacity={[-5, 1]}
+          startScroll={scrollPositions[index]?.startScroll}
+          endScroll={scrollPositions[index]?.endScroll}
+        >
+          <h1>{skill}</h1>
+        </Parallax>
+      ))}
+    </div>
+  );
 };
 
 export default SkillCloud;
